@@ -1,12 +1,17 @@
 :root {
   --sand: #fff4e8;
-  --stone: #2d0b1f;
+  --stone: #fbb569;
   --clay: #f9ba35;
   --olive: #5a4413;
-  --graphite: #453513;
+  --graphite: #2f010f;
   --white: #ffffff;
   --shadow: 0 25px 60px rgba(45, 11, 31, 0.18);
   --radius: 22px;
+  --light-rose: #f7e4ee;
+  --text-muted: #5a3548;
+  --text-secondary: #6c3f58;
+  --accent-pink: #cb4d84;
+  --light-pink: #f8e9f3;
 }
 
 * {
@@ -29,7 +34,7 @@ a {
 }
 
 .topbar {
-  background: #f7e4ee;
+  background: var(--light-rose);
   color: var(--graphite);
   padding: 0.4rem 0;
 }
@@ -163,7 +168,7 @@ a {
 }
 
 .page-subtitle {
-  color: #5a3548;
+  color: #2f010f;
   max-width: 640px;
 }
 
@@ -189,7 +194,7 @@ a {
 }
 
 .hero-subtitle {
-  color: #5a3548;
+  color: var(--text-muted);
   margin-bottom: 2rem;
 }
 
@@ -209,7 +214,7 @@ a {
 
 .metric-label {
   font-size: 0.9rem;
-  color: #6c3f58;
+  color: var(--text-secondary);
 }
 
 .hero-media {
@@ -241,7 +246,7 @@ a {
 }
 
 .hero-panel.alt {
-  background: #f8e9f3;
+  background: var(--light-pink);
 }
 
 .hero-panel.accent {
@@ -255,7 +260,7 @@ a {
 }
 
 .section-muted {
-  background: #f7e4ee;
+  background: var(--light-rose);
 }
 
 .section-label {
@@ -271,7 +276,7 @@ a {
 }
 
 .section-text {
-  color: #5a3548;
+  color: var(--text-muted);
   max-width: 620px;
 }
 
@@ -288,7 +293,7 @@ a {
 }
 
 .image-frame {
-  background: linear-gradient(135deg, #2d0b1f 0%, #771e5f 100%);
+  background: linear-gradient(135deg, var(--stone) 0%, var(--graphite) 100%);
   border-radius: var(--radius);
   min-height: 320px;
   position: relative;
@@ -358,16 +363,16 @@ a {
 
 .project-thumb {
   height: 180px;
-  background: linear-gradient(135deg, #f9ba35 0%, #cb4d84 100%);
+  background: linear-gradient(135deg, var(--clay) 0%, var(--accent-pink) 100%);
 }
 
 .project-thumb.alt {
-  background: linear-gradient(135deg, #771e5f 0%, #2d0b1f 100%);
+  background: linear-gradient(135deg, var(--graphite) 0%, var(--stone) 100%);
 }
 
 .project-thumb.accent {
-  background: linear-gradient(135deg, #cb4d84 0%, #771e5f 100%);
-}
+  background: linear-gradient(135deg, var(--accent-pink) 0%, var(--graphite) 100%);
+
 
 .project-body {
   padding: 1.5rem;
