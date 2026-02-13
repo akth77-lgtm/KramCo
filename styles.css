@@ -1,18 +1,11 @@
 :root {
-  --sand: #fff4e8;
-  --bg-primary: #dbdbdb;
-  --stone: #1a1a1a;
-  --clay: #ffffff;
-  --olive: #5a4413;
-  --graphite: #2f010f;
+  --primary: #1A3263;
+  --secondary: #547792;
+  --accent: #FAB95B;
+  --light-bg: #E8E2DB;
   --white: #ffffff;
-  --shadow: 0 25px 60px rgba(45, 11, 31, 0.18);
+  --shadow: 0 25px 60px rgba(26, 50, 99, 0.12);
   --radius: 22px;
-  --light-bg: #fef9f3;
-  --text-muted: #614a3b;
-  --text-secondary: #7a5c4d;
-  --accent-gold: #f4c430;
-  --accent-dark: #3d2f24;
 }
 
 * {
@@ -21,8 +14,8 @@
 
 body.page {
   font-family: "Cairo", "Barlow", sans-serif;
-  background: var(--bg-primary);
-  color: var(--stone);
+  background: var(--light-bg);
+  color: var(--primary);
   line-height: 1.7;
 }
 
@@ -35,24 +28,24 @@ a {
 }
 
 .topbar {
-  background: var(--light-bg);
-  color: var(--graphite);
+  background: rgba(26, 50, 99, 0.05);
+  color: var(--primary);
   padding: 0.4rem 0;
 }
 
 .topbar i {
-  color: var(--clay);
+  color: var(--accent);
 }
 
 .site-nav {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .site-nav.is-scrolled {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 40px rgba(26, 50, 99, 0.15);
 }
 
 .navbar-brand {
@@ -62,12 +55,12 @@ a {
 
 .site-nav .nav-link {
   font-weight: 600;
-  color: var(--stone);
+  color: var(--primary);
 }
 
 .site-nav .nav-link.active,
 .site-nav .nav-link:hover {
-  color: var(--graphite);
+  color: var(--accent);
 }
 
 .brand-mark {
@@ -76,7 +69,7 @@ a {
   width: 44px;
   height: 44px;
   border-radius: 14px;
-  background: var(--stone);
+  background: var(--primary);
   color: var(--white);
   font-weight: 700;
   letter-spacing: 1px;
@@ -99,37 +92,38 @@ a {
 .btn-ghost {
   border: 1px solid rgba(0, 0, 0, 0.15);
   background: transparent;
-  color: var(--stone);
+  color: var(--primary);
 }
 
 .btn-primary {
-  background: var(--graphite);
-  border-color: var(--graphite);
-  color: var(--white);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: #5e184a;
-  border-color: #5e184a;
-  color: var(--white);
+  background: #f39d2a;
+  border-color: #f39d2a;
+  color: var(--primary);
 }
 
 .btn-outline-light {
-  border-color: var(--clay);
-  color: var(--clay);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-outline-light:hover,
 .btn-outline-light:focus {
-  background: var(--clay);
-  color: var(--stone);
+  background: var(--accent);
+  color: var(--primary);
 }
 
 .hero {
   position: relative;
   padding: 5rem 0 6rem;
-  background: radial-gradient(circle at top right, #fff1f7 0%, #f6deea 40%, #f3e3cf 100%);
+  background: linear-gradient(135deg, #F5F1EA 0%, #E8E2DB 100%);
   overflow: hidden;
 }
 
@@ -141,13 +135,13 @@ a {
   border-radius: 50%;
   right: -80px;
   top: -80px;
-  background: rgba(249, 186, 53, 0.25);
+  background: rgba(250, 185, 91, 0.15);
 }
 
 .page-hero {
   position: relative;
   padding: 3.5rem 0 4rem;
-  background: radial-gradient(circle at top left, #ffe7f2 0%, #f6e3f0 40%, #f9efe0 100%);
+  background: linear-gradient(135deg, #E8E2DB 0%, #F5F1EA 100%);
   overflow: hidden;
 }
 
@@ -159,17 +153,18 @@ a {
   border-radius: 50%;
   left: -90px;
   bottom: -110px;
-  background: rgba(119, 30, 95, 0.18);
+  background: rgba(84, 119, 146, 0.1);
 }
 
 .page-title {
   font-size: clamp(2rem, 3vw, 2.8rem);
   font-weight: 700;
   margin-bottom: 0.8rem;
+  color: var(--primary);
 }
 
 .page-subtitle {
-  color: #2f010f;
+  color: var(--secondary);
   max-width: 640px;
 }
 
@@ -177,13 +172,13 @@ a {
   position: absolute;
   inset: auto 0 0 0;
   height: 120px;
-  background: linear-gradient(180deg, rgba(246, 241, 234, 0) 0%, var(--sand) 100%);
+  background: linear-gradient(180deg, rgba(232, 226, 219, 0) 0%, var(--light-bg) 100%);
 }
 
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--olive);
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 0.8rem;
 }
@@ -192,10 +187,11 @@ a {
   font-size: clamp(2.4rem, 3vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--primary);
 }
 
 .hero-subtitle {
-  color: var(--text-muted);
+  color: var(--secondary);
   margin-bottom: 2rem;
 }
 
@@ -210,12 +206,12 @@ a {
 .metric-value {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--graphite);
+  color: var(--accent);
 }
 
 .metric-label {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--secondary);
 }
 
 .hero-media {
@@ -226,11 +222,12 @@ a {
   position: absolute;
   top: -20px;
   left: 30px;
-  background: var(--graphite);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--primary);
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
   font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .hero-grid {
@@ -247,12 +244,12 @@ a {
 }
 
 .hero-panel.alt {
-  background: var(--light-bg);
+  background: rgba(250, 185, 91, 0.1);
 }
 
 .hero-panel.accent {
   grid-column: 1 / -1;
-  background: var(--stone);
+  background: var(--primary);
   color: var(--white);
 }
 
@@ -261,11 +258,11 @@ a {
 }
 
 .section-muted {
-  background: var(--light-bg);
+  background: rgba(232, 226, 219, 0.5);
 }
 
 .section-label {
-  color: var(--clay);
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -274,10 +271,11 @@ a {
   font-size: clamp(2rem, 3vw, 2.8rem);
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--primary);
 }
 
 .section-text {
-  color: var(--text-muted);
+  color: var(--secondary);
   max-width: 620px;
 }
 
@@ -286,15 +284,15 @@ a {
 }
 
 .chip {
-  background: rgba(249, 186, 53, 0.18);
-  color: var(--stone);
+  background: rgba(250, 185, 91, 0.15);
+  color: var(--primary);
   padding: 0.5rem 1rem;
   border-radius: 999px;
   font-size: 0.9rem;
 }
 
 .image-frame {
-  background: linear-gradient(135deg, var(--stone) 0%, var(--graphite) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border-radius: var(--radius);
   min-height: 320px;
   position: relative;
@@ -334,7 +332,7 @@ a {
 
 .link-card .link-cta {
   margin-top: auto;
-  color: var(--graphite);
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -344,14 +342,14 @@ a {
 
 .service-card i {
   font-size: 2rem;
-  color: var(--graphite);
+  color: var(--accent);
   display: block;
   margin-bottom: 1rem;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 30px 70px rgba(18, 18, 18, 0.2);
+  box-shadow: 0 30px 70px rgba(26, 50, 99, 0.15);
 }
 
 .project-card {
@@ -364,16 +362,16 @@ a {
 
 .project-thumb {
   height: 180px;
-  background: linear-gradient(135deg, var(--clay) 0%, var(--accent-dark) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
 }
 
 .project-thumb.alt {
-  background: linear-gradient(135deg, var(--graphite) 0%, var(--stone) 100%);
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
 }
 
 .project-thumb.accent {
-  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--graphite) 100%);
-
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+}
 
 .project-body {
   padding: 1.5rem;
@@ -400,8 +398,9 @@ a {
 .badge-soft {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  background: rgba(119, 30, 95, 0.12);
+  background: rgba(250, 185, 91, 0.15);
   font-size: 0.9rem;
+  color: var(--primary);
 }
 
 .quality-divider {
@@ -432,7 +431,7 @@ a {
 }
 
 .footer {
-  background: var(--stone);
+  background: var(--primary);
   color: var(--white);
   padding: 3.5rem 0 2rem;
 }
@@ -479,13 +478,14 @@ a {
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--graphite);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--primary);
   box-shadow: var(--shadow);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
   transform: translateY(10px);
+  font-weight: 600;
 }
 
 .to-top.is-visible {
@@ -523,5 +523,4 @@ a {
     flex-direction: column;
     gap: 0.5rem;
   }
-}
 }
