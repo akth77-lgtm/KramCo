@@ -1,5 +1,6 @@
 :root {
   --sand: #fff4e8;
+  --bg-primary: #FFF7CD;
   --stone: #1a1a1a;
   --clay: #f9ba35;
   --olive: #5a4413;
@@ -20,7 +21,7 @@
 
 body.page {
   font-family: "Cairo", "Barlow", sans-serif;
-  background: var(--sand);
+  background: var(--bg-primary);
   color: var(--stone);
   line-height: 1.7;
 }
