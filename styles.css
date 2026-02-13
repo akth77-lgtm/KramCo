@@ -1,17 +1,17 @@
 :root {
   --sand: #fff4e8;
-  --stone: #131211;
+  --stone: #1a1a1a;
   --clay: #f9ba35;
   --olive: #5a4413;
   --graphite: #2f010f;
-  --white: #ffffff; 
+  --white: #ffffff;
   --shadow: 0 25px 60px rgba(45, 11, 31, 0.18);
   --radius: 22px;
-  --light-rose: #f7e4ee;
-  --text-muted: #5a3548;
-  --text-secondary: #6c3f58;
-  --accent-pink: #cb4d84;
-  --light-pink: #f8e9f3;
+  --light-bg: #fef9f3;
+  --text-muted: #614a3b;
+  --text-secondary: #7a5c4d;
+  --accent-gold: #f4c430;
+  --accent-dark: #3d2f24;
 }
 
 * {
@@ -34,7 +34,7 @@ a {
 }
 
 .topbar {
-  background: var(--light-rose);
+  background: var(--light-bg);
   color: var(--graphite);
   padding: 0.4rem 0;
 }
@@ -246,7 +246,7 @@ a {
 }
 
 .hero-panel.alt {
-  background: var(--light-pink);
+  background: var(--light-bg);
 }
 
 .hero-panel.accent {
@@ -260,7 +260,7 @@ a {
 }
 
 .section-muted {
-  background: var(--light-rose);
+  background: var(--light-bg);
 }
 
 .section-label {
@@ -363,7 +363,7 @@ a {
 
 .project-thumb {
   height: 180px;
-  background: linear-gradient(135deg, var(--clay) 0%, var(--accent-pink) 100%);
+  background: linear-gradient(135deg, var(--clay) 0%, var(--accent-dark) 100%);
 }
 
 .project-thumb.alt {
@@ -371,7 +371,7 @@ a {
 }
 
 .project-thumb.accent {
-  background: linear-gradient(135deg, var(--accent-pink) 0%, var(--graphite) 100%);
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--graphite) 100%);
 
 
 .project-body {
