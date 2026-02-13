@@ -232,109 +232,162 @@ const translations = {
   },
 };
 
-const elements = document.querySelectorAll("[data-i18n]");
-const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
-const langToggle = document.querySelector("[data-lang-toggle]");
-const html = document.documentElement;
-const body = document.body;
-const nav = document.querySelector(".site-nav");
-const toTopButton = document.querySelector(".to-top");
-const ltrStylesheet = document.getElementById("bootstrap-ltr");
-const rtlStylesheet = document.getElementById("bootstrap-rtl");
+let revealObserver;
+let counterObserver;
 
-let currentLang = "ar";
+function handleScroll() {
+  const nav = document.querySelector(".site-nav");
+  const toTopButton = document.querySelector(".to-top");
 
-function setLanguage(lang) {
-  currentLang = lang;
-  const dictionary = translations[lang];
-
-  elements.forEach((element) => {
-    const key = element.getAttribute("data-i18n");
-    if (dictionary[key]) {
-      element.textContent = dictionary[key];
+  if (window.scrollY > 80) {
+    if (nav) {
+      nav.classList.add("is-scrolled");
     }
-  });
-
-  placeholders.forEach((element) => {
-    const key = element.getAttribute("data-i18n-placeholder");
-    if (dictionary[key]) {
-      element.setAttribute("placeholder", dictionary[key]);
+    if (toTopButton) {
+      toTopButton.classList.add("is-visible");
     }
-  });
-
-  if (lang === "en") {
-    html.setAttribute("dir", "ltr");
-    html.setAttribute("lang", "en");
-    body.classList.add("is-ltr");
-    ltrStylesheet.disabled = false;
-    rtlStylesheet.disabled = true;
-    langToggle.textContent = "AR";
   } else {
-    html.setAttribute("dir", "rtl");
-    html.setAttribute("lang", "ar");
-    body.classList.remove("is-ltr");
-    ltrStylesheet.disabled = true;
-    rtlStylesheet.disabled = false;
-    langToggle.textContent = "EN";
+    if (nav) {
+      nav.classList.remove("is-scrolled");
+    }
+    if (toTopButton) {
+      toTopButton.classList.remove("is-visible");
+    }
   }
 }
 
-langToggle.addEventListener("click", () => {
-  setLanguage(currentLang === "ar" ? "en" : "ar");
-});
+function initUI() {
+  const elements = document.querySelectorAll("[data-i18n]");
+  const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+  const langToggle = document.querySelector("[data-lang-toggle]");
+  const html = document.documentElement;
+  const body = document.body;
+  const ltrStylesheet = document.getElementById("bootstrap-ltr");
+  const rtlStylesheet = document.getElementById("bootstrap-rtl");
 
-setLanguage("ar");
+  let currentLang = html.getAttribute("lang") === "en" ? "en" : "ar";
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
+  function setLanguage(lang) {
+    currentLang = lang;
+    const dictionary = translations[lang];
+
+    elements.forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      if (dictionary[key]) {
+        element.textContent = dictionary[key];
       }
     });
-  },
-  { threshold: 0.15 }
-);
 
-document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-
-const counters = document.querySelectorAll("[data-count]");
-const counterObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const target = entry.target;
-        const endValue = Number(target.getAttribute("data-count"));
-        const valueEl = target.querySelector(".metric-value");
-        let start = 0;
-        const step = Math.max(1, Math.floor(endValue / 40));
-        const interval = setInterval(() => {
-          start += step;
-          if (start >= endValue) {
-            start = endValue;
-            clearInterval(interval);
-          }
-          valueEl.textContent = start;
-        }, 35);
-        counterObserver.unobserve(target);
+    placeholders.forEach((element) => {
+      const key = element.getAttribute("data-i18n-placeholder");
+      if (dictionary[key]) {
+        element.setAttribute("placeholder", dictionary[key]);
       }
     });
-  },
-  { threshold: 0.4 }
-);
 
-counters.forEach((counter) => counterObserver.observe(counter));
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 80) {
-    nav.classList.add("is-scrolled");
-    toTopButton.classList.add("is-visible");
-  } else {
-    nav.classList.remove("is-scrolled");
-    toTopButton.classList.remove("is-visible");
+    if (lang === "en") {
+      html.setAttribute("dir", "ltr");
+      html.setAttribute("lang", "en");
+      body.classList.add("is-ltr");
+      ltrStylesheet.disabled = false;
+      rtlStylesheet.disabled = true;
+      if (langToggle) {
+        langToggle.textContent = "AR";
+      }
+    } else {
+      html.setAttribute("dir", "rtl");
+      html.setAttribute("lang", "ar");
+      body.classList.remove("is-ltr");
+      ltrStylesheet.disabled = true;
+      rtlStylesheet.disabled = false;
+      if (langToggle) {
+        langToggle.textContent = "EN";
+      }
+    }
   }
-});
 
-toTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  if (langToggle && !langToggle.dataset.bound) {
+    langToggle.addEventListener("click", () => {
+      setLanguage(currentLang === "ar" ? "en" : "ar");
+    });
+    langToggle.dataset.bound = "true";
+  }
+
+  setLanguage(currentLang);
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+  }
+
+  document.querySelectorAll(".reveal").forEach((el) => {
+    if (!el.dataset.revealObserved) {
+      revealObserver.observe(el);
+      el.dataset.revealObserved = "true";
+    }
+  });
+
+  if (!counterObserver) {
+    counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target;
+            const endValue = Number(target.getAttribute("data-count"));
+            const valueEl = target.querySelector(".metric-value");
+            let start = 0;
+            const step = Math.max(1, Math.floor(endValue / 40));
+            const interval = setInterval(() => {
+              start += step;
+              if (start >= endValue) {
+                start = endValue;
+                clearInterval(interval);
+              }
+              valueEl.textContent = start;
+            }, 35);
+            counterObserver.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+  }
+
+  document.querySelectorAll("[data-count]").forEach((counter) => {
+    if (!counter.dataset.countObserved) {
+      counterObserver.observe(counter);
+      counter.dataset.countObserved = "true";
+    }
+  });
+
+  if (!body.dataset.scrollBound) {
+    window.addEventListener("scroll", handleScroll);
+    body.dataset.scrollBound = "true";
+  }
+
+  handleScroll();
+
+  const toTopButton = document.querySelector(".to-top");
+  if (toTopButton && !toTopButton.dataset.bound) {
+    toTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    toTopButton.dataset.bound = "true";
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initUI);
+} else {
+  initUI();
+}
+
+document.addEventListener("components:loaded", initUI);

@@ -106,6 +106,8 @@ function loadComponents() {
   // Initialize navigation
   initializeNavigation();
   initializeFooter();
+
+  document.dispatchEvent(new Event("components:loaded"));
 }
 
 function initializeNavigation() {
