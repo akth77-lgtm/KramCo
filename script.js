@@ -116,7 +116,7 @@ const translations = {
     footer_rights: "جميع الحقوق محفوظة © الأسس الصلبة للمقاولات",
   },
   en: {
-    topbar_location: "Jeddah, Saudi Arabia",
+    topbar_location: "Riyadh, Saudi Arabia",
     brand_name: "Solid Foundations",
     nav_about: "About",
     nav_services: "Services",
@@ -211,7 +211,7 @@ const translations = {
     contact_phone_label: "Phone",
     contact_email_label: "Email",
     contact_address_label: "Address",
-    contact_address: "Al Shati District, Jeddah",
+    contact_address: "Al Shati District, Riyadh",
     form_name: "Full name",
     form_company: "Company",
     form_email: "Email address",

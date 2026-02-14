@@ -1,5 +1,6 @@
 // Layout Components Loader
 
+// يجلب محتوى ملف جزئي (navbar/footer) ويعيده كنص.
 async function fetchPartial(path) {
   const response = await fetch(path, { cache: "no-cache" });
   if (!response.ok) {
@@ -8,6 +9,7 @@ async function fetchPartial(path) {
   return response.text();
 }
 
+// يحمّل الهيدر والفوتر من الملفات الجزئية ويحقنها في الصفحة ثم يهيئ السلوك.
 async function loadComponents() {
   let navHTML = "";
   let footerHTML = "";
@@ -39,6 +41,7 @@ async function loadComponents() {
   document.dispatchEvent(new Event("components:loaded"));
 }
 
+// يحدد التبويب النشط ويضيف تأثير التمرير لشريط التنقل.
 function initializeNavigation() {
   const navLinks = document.querySelectorAll('.site-nav .nav-link');
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -63,6 +66,7 @@ function initializeNavigation() {
   }
 }
 
+// يفعّل زر الرجوع للأعلى ويُظهره عند التمرير.
 function initializeFooter() {
   const toTopBtn = document.querySelector('.to-top');
   if (toTopBtn) {
@@ -80,7 +84,7 @@ function initializeFooter() {
   }
 }
 
-// Load components when DOM is ready
+// تحميل المكونات عند جاهزية DOM.
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', loadComponents);
 } else {
