@@ -1,6 +1,6 @@
 const translations = {
   ar: {
-    topbar_location: "جدة، المملكة العربية السعودية",
+    topbar_location: "الرياض، المملكة العربية السعودية",
     brand_name: "الأسس الصلبة",
     nav_about: "عن الشركة",
     nav_services: "الخدمات",
@@ -96,7 +96,7 @@ const translations = {
     contact_phone_label: "الهاتف",
     contact_email_label: "البريد",
     contact_address_label: "العنوان",
-    contact_address: "حي الشاطئ، جدة",
+    contact_address: "حي الشاطئ، الرياض",
     form_name: "الاسم الكامل",
     form_company: "الشركة",
     form_email: "البريد الإلكتروني",
