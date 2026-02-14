@@ -4,7 +4,7 @@ function loadComponents() {
   const navHTML = `<nav class="navbar navbar-expand-lg sticky-top site-nav">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-      <img class="brand-logo" src="images/Logo.png" alt="Solid Foundations logo" />
+      <img class="brand-logo" src="images/lo-1.png" alt="Solid Foundations logo" />
       <span class="brand-text" data-i18n="brand_name">الأسس الصلبة</span>
     </a>
     <button
@@ -39,7 +39,7 @@ function loadComponents() {
     <div class="row mb-4">
       <div class="col-md-4 mb-3">
         <div class="footer-brand">
-          <img class="brand-logo" src="images/Logo.png" alt="Solid Foundations logo" style="max-width: 40px;" />
+          <img class="brand-logo" src="images/lo-1.png" alt="Solid Foundations logo" style="max-width: 40px;" />
           <span class="brand-text" data-i18n="brand_name">الأسس الصلبة</span>
         </div>
         <p class="footer-text" data-i18n="footer_desc">
