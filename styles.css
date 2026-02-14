@@ -688,6 +688,28 @@ a {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-light);
   border: 1px solid rgba(26, 50, 99, 0.05);
+
+.form-field-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--secondary);
+}
+
+.form-status.is-success {
+  color: #1f7a3f;
+}
+
+.form-status.is-error {
+  color: #b23c3c;
+}
 }
 
 .contact-form input,

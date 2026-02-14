@@ -96,32 +96,37 @@
             </div>
           </div>
           <div class="col-lg-7">
-            <form class="contact-form reveal">
+            <form class="contact-form reveal" data-contact-endpoint="https://your-backend-domain/api/contact">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="form_name">الاسم الكامل</label>
-                  <input class="form-control" type="text" placeholder="محمد أحمد" data-i18n-placeholder="form_name_placeholder" />
+                  <input class="form-control" type="text" name="name" placeholder="محمد أحمد" data-i18n-placeholder="form_name_placeholder" required />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="form_company">الشركة</label>
-                  <input class="form-control" type="text" placeholder="اسم الشركة" data-i18n-placeholder="form_company_placeholder" />
+                  <input class="form-control" type="text" name="company" placeholder="اسم الشركة" data-i18n-placeholder="form_company_placeholder" />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="form_email">البريد الإلكتروني</label>
-                  <input class="form-control" type="email" placeholder="name@example.com" data-i18n-placeholder="form_email_placeholder" />
+                  <input class="form-control" type="email" name="email" placeholder="name@example.com" data-i18n-placeholder="form_email_placeholder" required />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="form_phone">رقم التواصل</label>
-                  <input class="form-control" type="tel" placeholder="05xxxxxxxx" data-i18n-placeholder="form_phone_placeholder" />
+                  <input class="form-control" type="tel" name="phone" placeholder="05xxxxxxxx" data-i18n-placeholder="form_phone_placeholder" />
+                </div>
+                <div class="col-12 form-field-hidden" aria-hidden="true">
+                  <label class="form-label">Website</label>
+                  <input class="form-control" type="text" name="website" tabindex="-1" autocomplete="off" />
                 </div>
                 <div class="col-12">
                   <label class="form-label" data-i18n="form_message">تفاصيل المشروع</label>
-                  <textarea class="form-control" rows="4" placeholder="صف المشروع بإيجاز" data-i18n-placeholder="form_message_placeholder"></textarea>
+                  <textarea class="form-control" rows="4" name="message" placeholder="صف المشروع بإيجاز" data-i18n-placeholder="form_message_placeholder" required></textarea>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary btn-lg w-100" type="button" data-i18n="form_submit">
+                  <button class="btn btn-primary btn-lg w-100" type="submit" data-i18n="form_submit">
                     إرسال الطلب
                   </button>
+                  <div class="form-status" data-form-status data-i18n="form_status_idle">سنراجع بياناتك ونرد قريبًا.</div>
                 </div>
               </div>
             </form>

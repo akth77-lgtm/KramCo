@@ -108,6 +108,10 @@ const translations = {
     form_email_placeholder: "name@example.com",
     form_phone_placeholder: "05xxxxxxxx",
     form_message_placeholder: "صف المشروع بإيجاز",
+    form_status_idle: "سنراجع بياناتك ونرد قريبًا.",
+    form_status_sending: "جاري إرسال الطلب...",
+    form_status_success: "تم إرسال طلبك بنجاح. سنعود إليك قريبًا.",
+    form_status_error: "تعذر إرسال الطلب. حاول مرة أخرى.",
     footer_tagline: "نبني بثقة، وننفذ بتميز.",
     footer_text: "خبرة هندسية وميدانية ممتدة، نقدم حلول مقاولات متكاملة برؤية حديثة.",
     footer_links: "روابط",
@@ -223,6 +227,10 @@ const translations = {
     form_email_placeholder: "name@example.com",
     form_phone_placeholder: "+966 5x xxx xxxx",
     form_message_placeholder: "Briefly describe the project",
+    form_status_idle: "We will review your details and get back to you soon.",
+    form_status_sending: "Sending your request...",
+    form_status_success: "Your request was sent successfully. We will reach out soon.",
+    form_status_error: "Unable to send your request. Please try again.",
     footer_tagline: "We build with confidence and deliver with excellence.",
     footer_text: "Field-proven engineering experience delivering modern, end-to-end contracting solutions.",
     footer_links: "Links",
@@ -382,6 +390,68 @@ function initUI() {
     });
     toTopButton.dataset.bound = "true";
   }
+
+  initContactForm(currentLang);
+}
+
+function initContactForm(currentLang) {
+  const form = document.querySelector(".contact-form");
+  if (!form || form.dataset.bound) {
+    return;
+  }
+
+  const statusEl = form.querySelector("[data-form-status]");
+  const endpoint = form.getAttribute("data-contact-endpoint") || "";
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!endpoint) {
+      if (statusEl) {
+        statusEl.textContent = translations[currentLang].form_status_error;
+        statusEl.classList.add("is-error");
+      }
+      return;
+    }
+
+    if (statusEl) {
+      statusEl.textContent = translations[currentLang].form_status_sending;
+      statusEl.classList.remove("is-error", "is-success");
+    }
+
+    const payload = {
+      name: form.elements.namedItem("name")?.value?.trim() || "",
+      company: form.elements.namedItem("company")?.value?.trim() || "",
+      email: form.elements.namedItem("email")?.value?.trim() || "",
+      phone: form.elements.namedItem("phone")?.value?.trim() || "",
+      message: form.elements.namedItem("message")?.value?.trim() || "",
+      website: form.elements.namedItem("website")?.value || "",
+    };
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      form.reset();
+      if (statusEl) {
+        statusEl.textContent = translations[currentLang].form_status_success;
+        statusEl.classList.add("is-success");
+      }
+    } catch (error) {
+      if (statusEl) {
+        statusEl.textContent = translations[currentLang].form_status_error;
+        statusEl.classList.add("is-error");
+      }
+    }
+  });
+
+  form.dataset.bound = "true";
 }
 
 if (document.readyState === "loading") {
