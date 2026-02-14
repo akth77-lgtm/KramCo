@@ -16,8 +16,8 @@ async function loadComponents() {
 
   try {
     [navHTML, footerHTML] = await Promise.all([
-      fetchPartial("_navbar.html"),
-      fetchPartial("_footer.html"),
+      fetchPartial("navbar.html"),
+      fetchPartial("footer.html"),
     ]);
   } catch (error) {
     console.warn("Component load failed:", error);
