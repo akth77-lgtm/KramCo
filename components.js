@@ -34,7 +34,7 @@ function loadComponents() {
       <div class="row mb-4">
         <div class="col-md-4 mb-3">
           <div class="footer-brand">
-            <img class="brand-logo" src="images/logo.png" alt="Solid Foundations logo" style="max-width: 40px;" />
+            <img class="brand-logo" src="images/logo.png" alt="Solid Foundations logo" style="max-width: 400px;" />
           </div>
           <p class="footer-text" data-i18n="footer_desc">
             شركة متخصصة في المقاولات الهندسية مع التزام عميق بالجودة والتسليم في الوقت.
