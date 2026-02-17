@@ -1,4 +1,6 @@
+
 from __future__ import annotations
+from flask import send_from_directory
 
 import os
 import sqlite3
@@ -17,6 +19,17 @@ ALLOWED_ORIGINS = [origin.strip() for origin in os.getenv("ALLOWED_ORIGINS", "*"
 RATE_BUCKET: Dict[str, List[float]] = {}
 
 app = Flask(__name__)
+
+@app.route("/")
+def serve_index():
+    return send_from_directory(os.path.abspath(os.path.join(BASE_DIR, "..")), "index.html")
+
+@app.route("/<path:filename>")
+def serve_static_files(filename):
+    allowed = ["about.html", "contact.html", "footer.html", "navbar.html", "projects.html", "quality.html", "services.html", "components.js", "script.js", "styles.css"]
+    if filename in allowed:
+        return send_from_directory(os.path.abspath(os.path.join(BASE_DIR, "..")), filename)
+    return ("Not Found", 404)
 
 
 def init_db() -> None:
