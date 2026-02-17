@@ -33,17 +33,24 @@
     <script src="components.js" defer></script>
   </head>
   <body class="page">
+
+    
+    <!-- شريط المعلومات العلوي: يعرض الموقع ووسائل التواصل -->
     <div class="topbar small">
       <div class="container d-flex flex-wrap align-items-center gap-3">
+        <!-- موقع الشركة -->
         <div class="d-flex align-items-center gap-2">
           <i class="bi bi-geo-alt"></i>
           <span data-i18n="topbar_location">الرياض،المملكة العربية السعودية</span>
         </div>
+        <!-- وسائل التواصل: هاتف وبريد -->
         <div class="ms-auto d-flex align-items-center gap-3">
+          <!-- رقم الهاتف -->
           <span class="d-flex align-items-center gap-2">
             <i class="bi bi-telephone"></i>
             <span>+966 12 345 6789</span>
           </span>
+          <!-- البريد الإلكتروني -->
           <span class="d-flex align-items-center gap-2">
             <i class="bi bi-envelope"></i>
             <span>info@solidfoundations.sa</span>
@@ -52,35 +59,39 @@
       </div>
     </div>
 
+    <!-- قسم الهيرو: مقدمة الموقع -->
     <header id="hero" class="hero">
-      <div class="container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6">
+      <div class="container"><!-- حاوية محتوى الهيرو -->
+        <div class="row align-items-center gy-4"><!-- صف الهيرو: نص وصورة -->
+          
+          
+          
+          <div class="col-lg-12"><!-- عمود النصوص -->
             <div class="eyebrow" data-i18n="hero_eyebrow">نثبت الأسس، نبني المستقبل</div>
-            <h1 class="hero-title" data-i18n="hero_title">
+            <h1 class="hero-title w-100" data-i18n="hero_title">
               حلول مقاولات متكاملة بهوية عصرية وجودة لا تقبل التنازل
             </h1>
             <p class="hero-subtitle" data-i18n="hero_subtitle">
               فريق هندسي بخبرة ميدانية واسعة، ننفذ المشاريع التجارية والسكنية والبنية التحتية وفق أعلى المعايير.
             </p>
-            <div class="d-flex flex-wrap gap-3">
+            <div class="d-flex flex-wrap gap-3"><!-- أزرار الهيرو -->
               <a class="btn btn-primary btn-lg" href="projects.html" data-i18n="hero_cta_primary">استعرض أعمالنا</a>
               <a class="btn btn-outline-light btn-lg" href="services.html" data-i18n="hero_cta_secondary">خدماتنا</a>
             </div>
-            <div class="hero-metrics row mt-4 g-3">
-              <div class="col-6 col-md-4">
+            <div class="hero-metrics row mt-4 g-3"><!-- بطاقات الإحصائيات -->
+              <div class="col-6 col-md-4"><!-- بطاقة سنوات الخبرة -->
                 <div class="metric-card reveal" data-count="18">
                   <div class="metric-value">0</div>
                   <div class="metric-label" data-i18n="metric_years">سنة خبرة</div>
                 </div>
               </div>
-              <div class="col-6 col-md-4">
+              <div class="col-6 col-md-4"><!-- بطاقة المشاريع المكتملة -->
                 <div class="metric-card reveal" data-count="120">
                   <div class="metric-value">0</div>
                   <div class="metric-label" data-i18n="metric_projects">مشروع مكتمل</div>
                 </div>
               </div>
-              <div class="col-6 col-md-4">
+              <div class="col-6 col-md-4"><!-- بطاقة الشركاء الاستراتيجيين -->
                 <div class="metric-card reveal" data-count="32">
                   <div class="metric-value">0</div>
                   <div class="metric-label" data-i18n="metric_partners">شريك استراتيجي</div>
@@ -88,23 +99,26 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="hero-media reveal">
+ 
+
+
+          <div style="padding-top: 80px;" class="col-lg-12"><!-- عمود الصورة/العناصر البصرية -->
+            <div class="hero-media reveal"><!-- حاوية العناصر البصرية -->
               <div class="media-badge" data-i18n="hero_badge">فريق مشاريع ميداني</div>
-              <div class="hero-grid">
-                <div class="hero-panel">
+              <div class="hero-grid"><!-- شبكة البطاقات الجانبية -->
+                <div class="hero-panel"><!-- بطاقة إدارة المخاطر -->
                   <h3 data-i18n="hero_panel_title">إدارة دقيقة للمخاطر</h3>
                   <p data-i18n="hero_panel_text">
                     منهجية تخطيط وتحكم تقلل التكاليف وتحافظ على الجداول الزمنية.
                   </p>
                 </div>
-                <div class="hero-panel alt">
+                <div class="hero-panel alt"><!-- بطاقة السلامة المهنية -->
                   <h3 data-i18n="hero_panel_title_alt">مواقع تعمل بسلامة كاملة</h3>
                   <p data-i18n="hero_panel_text_alt">
                     تطبيق صارم لمعايير الصحة والسلامة المهنية في كل موقع.
                   </p>
                 </div>
-                <div class="hero-panel accent">
+                <div class="hero-panel accent"><!-- بطاقة التقارير اللحظية -->
                   <h3 data-i18n="hero_panel_title_accent">تقارير لحظية</h3>
                   <p data-i18n="hero_panel_text_accent">
                     لوحات متابعة متاحة للعميل مع مؤشرات الإنجاز.
@@ -113,22 +127,27 @@
               </div>
             </div>
           </div>
+
+
+
+          
         </div>
       </div>
-      <div class="hero-wave"></div>
+       
     </header>
 
+    <!-- قسم نظرة سريعة على الخدمات -->
     <section id="overview" class="section">
-      <div class="container">
-        <div class="section-header">
+      <div class="container"><!-- حاوية محتوى القسم -->
+        <div class="section-header"><!-- رأس القسم -->
           <div class="section-label" data-i18n="home_overview_label">نظرة سريعة</div>
           <h2 class="section-title" data-i18n="home_overview_title">كل تبويبة في صفحة مستقلة</h2>
           <p class="section-text" data-i18n="home_overview_text">
             اكتشف خدماتنا ومشاريعنا ومعايير الجودة عبر صفحات مصممة بوضوح وتفاصيل مركزة.
           </p>
         </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
+        <div class="row g-4"><!-- صف البطاقات -->
+          <div class="col-md-6 col-lg-4"><!-- بطاقة عن الشركة -->
             <a class="service-card link-card reveal" href="about.html">
               <i class="bi bi-people"></i>
               <h3 data-i18n="nav_about">عن الشركة</h3>
@@ -136,7 +155,7 @@
               <span class="link-cta" data-i18n="home_card_cta">اذهب للصفحة</span>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4"><!-- بطاقة الخدمات -->
             <a class="service-card link-card reveal" href="services.html">
               <i class="bi bi-gear"></i>
               <h3 data-i18n="nav_services">الخدمات</h3>
@@ -144,7 +163,7 @@
               <span class="link-cta" data-i18n="home_card_cta">اذهب للصفحة</span>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4"><!-- بطاقة المشاريع -->
             <a class="service-card link-card reveal" href="projects.html">
               <i class="bi bi-building"></i>
               <h3 data-i18n="nav_projects">المشاريع</h3>
@@ -152,7 +171,7 @@
               <span class="link-cta" data-i18n="home_card_cta">اذهب للصفحة</span>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4"><!-- بطاقة الجودة -->
             <a class="service-card link-card reveal" href="quality.html">
               <i class="bi bi-shield-check"></i>
               <h3 data-i18n="nav_quality">الجودة</h3>
@@ -160,7 +179,7 @@
               <span class="link-cta" data-i18n="home_card_cta">اذهب للصفحة</span>
             </a>
           </div>
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-6 col-lg-4"><!-- بطاقة التواصل -->
             <a class="service-card link-card reveal" href="contact.html">
               <i class="bi bi-chat-dots"></i>
               <h3 data-i18n="nav_contact">تواصل معنا</h3>
