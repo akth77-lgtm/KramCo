@@ -5,7 +5,7 @@ function loadComponents() {
   <nav class="navbar navbar-expand-lg sticky-top site-nav">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img class="brand-logo" src="images/logo.png" alt="Solid Foundations logo" />
+        <img class="brand-logo" src="images/Logo.png" alt="Solid Foundations logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false"
