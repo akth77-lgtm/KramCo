@@ -35,7 +35,6 @@ function loadComponents() {
         <div class="col-md-4 mb-3">
           <div class="footer-brand">
             <img class="brand-logo" src="images/Logo.png" alt="Solid Foundations logo" style="max-width: 400px;" />
-            <span class="brand-text" data-i18n="brand_name">الأسس الصلبة</span>
           </div>
           <p class="footer-text" data-i18n="footer_desc">
             شركة متخصصة في المقاولات الهندسية مع التزام عميق بالجودة والتسليم في الوقت.
