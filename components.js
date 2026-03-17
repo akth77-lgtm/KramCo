@@ -71,10 +71,14 @@ function loadComponents() {
     </div>
   </footer>`;
 
-  // Insert navbar after topbar
+  // Insert navbar: prefer after topbar if it exists, otherwise at top of body
   const topbar = document.querySelector('.topbar');
-  if (topbar && !document.querySelector('.site-nav')) {
-    topbar.insertAdjacentHTML('afterend', navHTML);
+  if (!document.querySelector('.site-nav')) {
+    if (topbar) {
+      topbar.insertAdjacentHTML('afterend', navHTML);
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', navHTML);
+    }
   }
 
   // Insert footer before closing body tag
